@@ -1,0 +1,169 @@
+<div class="container-fluid d-flex justify-content-center">
+  <div class="card text-left">
+
+    <form [formGroup]="productform" (ngSubmit)="onSaveAnnonnce()">
+
+      <div class="form-style-10">
+        <h1>Demande d'ajout nouveau produit<span>remplir ce formulaire..</span></h1>
+
+        <div class="section"><span>1</span>Photos</div>
+        <div class="inner-wrap">
+
+          <div class="form-group">
+            <label>Ajouter des photos </label>
+            <div class="input-group">
+              <div class="wrapper">
+
+                <div class="box">
+                  <div class="js--image-preview">
+                    <span style="color:red;" *ngIf="message">{{message}}</span>
+                    <img [src]="'data:image/jpeg;base64,' +imgURL1" height="200" *ngIf="imgURL1">
+                  </div>
+                  <div class="upload-options">
+                    <div class="form-group">
+                      <label>
+                        <input #file1 type="file" class="image-upload" accept="image/*"
+                               (change)="preview1(file1.files)"
+                               class="form-control" [ngClass]="{ 'is-invalid': submitted && f.image1.errors }"/>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="box">
+                  <div class="js--image-preview">
+                    <span style="color:red;" *ngIf="message">{{message}}</span>
+                    <img [src]="'data:image/jpeg;base64,' +imgURL2" height="200" *ngIf="imgURL2">
+                  </div>
+                  <div class="upload-options">
+                    <label>
+                      <input #file2 type="file" class="image-upload" accept="image/*"
+                             (change)="preview2(file2.files)"
+                             class="form-control" [ngClass]="{ 'is-invalid': submitted && f.image2.errors }"/>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="box">
+                  <div class="js--image-preview">
+                    <span style="color:red;" *ngIf="message">{{message}}</span>
+                    <img [src]="'data:image/jpeg;base64,' +imgURL3" height="200" *ngIf="imgURL3">
+                  </div>
+                  <div class="upload-options">
+                    <label>
+                      <input #file3 type="file" class="image-upload" accept="image/*"
+                             (change)="preview3(file3.files)"
+                             class="form-control" [ngClass]="{ 'is-invalid': submitted && f.image3.errors }"/>
+                    </label>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="section"><span>2</span>Informations sur le produit</div>
+        <div class="inner-wrap">
+
+          <div class="form-group">
+            <label>Nom Du Produit <input type="text" name="name" formControlName="name" class="form-control"
+                                [ngClass]="{ 'is-invalid': submitted && f.name.errors }"/></label>
+            <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+              <div *ngIf="f.name.errors.required">Nom Du Produit est requis</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Code a bare <input type="text" name="barcode" formControlName="barcode" class="form-control"
+                                [ngClass]="{ 'is-invalid': submitted && f.barcode.errors }"/></label>
+            <div *ngIf="submitted && f.barcode.errors" class="invalid-feedback">
+              <div *ngIf="f.barcode.errors.required">barcode Du Produit est requis</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Catégorie</label>
+            <select *ngIf="categories" (change)="getSubCategories($event.target.value)" name="categorie"
+                    formControlName="categorie"
+                    class="form-control" [ngClass]="{ 'is-invalid': submitted && f.categorie.errors }">
+                    <option>Computers & Accessories</option>
+                    <option>Cameras, Audio & Video</option>
+                    <option>Mobiles & Tablets</option>
+              <option *ngFor="let cat of categories" [value]="cat._id">
+                {{cat.name}}
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Sous catégorie</label>
+            <select *ngIf="subCatgories" name="subcategory" formControlName="subcategory"
+                    class="form-control" [ngClass]="{ 'is-invalid': submitted && f.subcategory.errors }">
+                    <option>Computers & Accessories</option>
+                    <option>Cameras, Audio & Video</option>
+                    <option>Mobiles & Tablets</option>
+              <option *ngFor="let scat of subCatgories" [value]=scat._id>
+                {{scat.name}}
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Description
+              <textarea class="form-control" rows="5" name="description" formControlName="description"
+                        [ngClass]="{ 'is-invalid': submitted && f.description.errors }">
+              </textarea>
+            </label>
+          </div>
+          <div class="form-group">
+              <label>PRix <input type="text" name="prix" formControlName="prix" class="form-control"
+                      [ngClass]="{ 'is-invalid': submitted && f.prix.errors }" /></label>
+              <div *ngIf="submitted && f.prix.errors" class="invalid-feedback">
+                  <div *ngIf="f.prix.errors.required">Prix est requis</div>
+              </div>
+          </div>
+          <div class="form-group">
+              <label>Modéle <input type="text" name="modele" formControlName="modele" class="form-control"
+                      [ngClass]="{ 'is-invalid': submitted && f.modele.errors }" /></label>
+              <div *ngIf="submitted && f.modele.errors" class="invalid-feedback">
+                  <div *ngIf="f.modele.errors.required">modele est requis</div>
+              </div>
+          </div>
+          <div class="form-group">
+              <label>couleurs <input type="text" name="couleurs" formControlName="couleurs" class="form-control"
+                      [ngClass]="{ 'is-invalid': submitted && f.couleurs.errors }" /></label>
+              <div *ngIf="submitted && f.couleurs.errors" class="invalid-feedback">
+               </div>
+          </div>
+          <div class="form-group">
+              <label>quantite en stock <input type="text" name="quantite" formControlName="quantite" class="form-control"
+                      [ngClass]="{ 'is-invalid': submitted && f.quantite.errors }" /></label>
+              <div *ngIf="submitted && f.quantite.errors" class="invalid-feedback">
+                  <div *ngIf="f.quantite.errors.required">couleurs est requis</div>
+              </div>
+          </div>
+
+
+        </div>
+
+
+
+
+
+
+
+
+        <!-- ======================================= -->
+
+
+        <div class="inner-wrap">
+
+
+          <div class="button-section">
+            <input type="submit" value="Publier"/>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

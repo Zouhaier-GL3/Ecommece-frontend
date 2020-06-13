@@ -1,0 +1,28 @@
+<div class="container"><div class="container-fluid d-flex justify-content-center">
+    <div class="card text-left">
+        <div class="form-style-10">
+            <h1>Sales request: </h1>
+
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover table  ">
+        <thead>
+          <tr class="bg-grey">
+            <th>Name</th>
+            <th>Email</th>
+            <th>Telephone</th>
+            <th>State</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of listDemande">
+            <td>{{ item.name }}</td>
+            <td>{{ item.email }}</td>
+            <td>{{ item.telephone }}</td>
+            <td>{{ item.etat }}</td>
+          </tr>
+        </tbody>
+        </table>
+
+        </div>
+
+</div>
+</div>

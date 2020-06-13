@@ -1,0 +1,100 @@
+<div class="container"><div class="container-fluid d-flex justify-content-center">
+    <div class="card text-left">
+        <div class="form-style-10">
+          <div class="row">   <h2>Category list : </h2> <button style=" margin-bottom: 15px; " class="btn" (click)="ajoutercat()"> Add category</button></div>
+
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover table  ">
+        <thead>
+          <tr class="bg-grey">
+            <th>Name </th>
+            <th>Sub Category</th>
+
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of listCat">
+            <td>{{ item.name }}</td>
+            <td> <button class="btn"  data-toggle="modal" data-target="#subCatModal" (click)="getlistSub(item)">Sub Category</button></td>
+            <td>{{ item.telephone }}</td>
+
+            <td> <button class="btn"  data-toggle="modal" data-target="#deleteModal">Delete</button></td>
+            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="Supprimer ADmin" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Supprimer Admin</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                     Voulez vous Supprimer {{item.name}}
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulé</button>
+                      <button type="button" class="btn btn-primary" (click)="suppAdmin(item)">Delete</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal fade" id="subCatModal" tabindex="-1" role="dialog" aria-labelledby="liste sub" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Sub Category List</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form >
+
+
+
+                        <p class="form-row form-row-wide">
+                            <label for="username">Sub Category Name<span class="required">*</span></label>
+                            <input type="text" formControlName="label" class="input-text" placeholder="Sub Category name"  />
+                        </p>
+
+                        <p class="form-row">
+                            <input  class="btn btn-primary button"  type="submit"
+                                value="Publier" name="label">
+
+                        </p>
+
+                    </form>
+                        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover table  ">
+                            <thead>
+                              <tr class="bg-grey">
+                                <th>Name </th>
+                                  <th>Telephone</th>
+                                <th>Date</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let item of listSub">
+                                <td>{{ item.name }}</td>
+                                 <td>{{ item.telephone }}</td>
+                                <td>{{ item.dataCre }}</td>
+                                <td> <button class="btn"  data-toggle="modal" data-target="#deleteModal">supp</button></td>
+            </tr>
+            </tbody>
+            </table>
+
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">close</button>
+                     </div>
+                  </div>
+                </div>
+              </div>
+          </tr>
+
+        </tbody>
+        </table>
+
+        </div>
+
+</div>
+</div>

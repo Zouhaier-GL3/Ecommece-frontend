@@ -1,0 +1,26 @@
+<div class="row">
+
+
+  <div class="col-xs-12 col-lg-3">
+    <nav>
+      <ul class="list-group vertical-menu yamm ">
+        <li class="list-group-item"><span><i class="fa fa-list-ul"></i> <a routerLink="">DashBoard</a></span></li>
+
+        <li class="highlight menu-item animate-dropdown"><a routerLink="gest/comptes">Account management </a></li>
+        <li class="highlight menu-item animate-dropdown"><a routerLink="gest/vendeurs">Vendor Management</a></li>
+        <li class="highlight menu-item animate-dropdown"> <a routerLink="categories">Category Management</a></li>
+        <li class="highlight menu-item animate-dropdown"> <a routerLink="demande_vente">Sales request processing</a></li>
+        <li class="highlight menu-item animate-dropdown"> <a routerLink="listproduct">Product Management</a></li>
+        <li class="highlight menu-item animate-dropdown"> <a routerLink="reclamation">Process Complaints</a></li>
+        <li class="highlight menu-item animate-dropdown"> <a routerLink="mescommandes">Orders History</a></li>
+        <li class="highlight menu-item animate-dropdown"> <a routerLink="analytics">Analysis</a></li>
+
+      </ul>
+    </nav>
+  </div>
+
+  <div class="col-lg-9">
+    <router-outlet></router-outlet>
+  </div>
+
+</div>

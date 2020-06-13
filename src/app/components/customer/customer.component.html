@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row">
+    <div class="col s5" *ngIf="addform">
+      <div class="card">
+        <div class="card-content">
+          <form #customerForm="ngForm" (ngSubmit)="addcustomer(customerForm)">
+            <input type="hidden" name="_id" #_id="ngModel" ngModel>
+            <div class="row">
+              <div class="input-field col-s12">
+                <input type="text" name="name" #name="ngModel" ngModel placeholder="Enter your full name" >
+              </div>
+              <div class="input-field col-s12">
+                <input type="text" name="phone" #name="ngModel" ngModel placeholder="Enter your full phone" >
+              </div>
+              <div class="input-field col-s12">
+                <input type="text" name="message" #name="ngModel" ngModel placeholder="Enter your full message">
+              </div>
+
+              <div class="card-action">
+                <div class="input-field col-s12">
+                  <button class="btn right" style="margin-left: 2px;" (click)="resetForm(customerForm)">Clean</button>
+                  <button class="btn right" type="submit">Save</button>
+                </div>
+              </div>
+            </div>
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+    <div class="col s7" *ngIf="!addform" >
+      <table class="striped highlight black-text">
+        <thead>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Message</th>
+
+        </thead>
+        <tbody>
+          <tr *ngFor="let customer of customer ">
+            <td>{{ customer.name }}</td>
+            <td>{{ customer.phone }}</td>
+            <td>{{ customer.message }}</td>
+            <td>
+              <a (click)="editcustomer(customer)">
+                <i class="material-icons">edit</i>
+              </a>
+              <a (click)="deletecustomer(customer._id)">
+                <i class="material-icons">delete</i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <button class="btn right" style="margin-left: 100  ;" (click)="showaddForm()">add new </button>
+
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,75 @@
+<h2 style="margin-left: 438px; margin-bottom: 25px;">Sell on site</h2>
+<div class="container">
+<div class="container-fluid mt-3 p-3">
+
+    <div class="container-fluid d-flex justify-content-center">
+        <div class="card-body">
+            <div class="col2-set">
+
+
+            <form class="col-md-auto justify-content-md-center" [formGroup]="requestFrom" (ngSubmit)="saveRequest" >
+                <div class="form-row">
+                      <div class="form-group col-md-4 m-1 ">
+                        <label for="inputEmail4">Nom Comptele</label>
+                        <input type="text" class="form-control" id="inputEmail4" placeholder="Name" formControlName="name">
+                      </div>
+                      <div class="form-group col-md-4 m-1 ">
+                        <label for="inputEmail4">Email</label>
+                        <input type="email" class="form-control" id="inputEmail4" placeholder="Email" formControlName="email">
+                      </div>
+
+                </div>
+                <div class="form-row">
+                      <div class="form-group col-md-4 m-1 ">
+                        <label for="inputEmail4">Télephone</label>
+                        <input type="text" class="form-control" id="inputTel4" placeholder="Télephone" formControlName="Telephone">
+                      </div>
+                      <div class="form-group col-md-4 m-1 ">
+                        <label for="inputCat">Categorie de Produits</label>
+                        <input type="text" class="form-control" id="inputCat" placeholder="Categorie de Produits" formControlName="catégoie_produit">
+                      </div>
+
+                </div>
+
+                <div class="form-row">
+
+                  <div class="form-group col-md-4 m-1" >
+                    <label for="inputAddress">Address</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" >
+                  </div>
+
+                  <div class="form-group col-md-4 m-1">
+                    <label for="inputAddress2">Address 2</label>
+                    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                  </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group col-md-4 m-1">
+                      <label for="inputCity">City</label>
+                      <input type="text" class="form-control" id="inputCity">
+                    </div>
+                  </div>
+
+                <div class="form-row ">
+                    <div class="">
+                        <label for="inputMessage">Description</label>
+                        <textarea type="text"  style="padding-left: 35px;" class="input-text" id="inputMessage" placeholder="Description" formControlName="message"> </textarea>
+                      </div>
+                </div>
+
+
+
+                <button type="submit" class="btn btn-primary" style="margin-bottom: 75px;">envoyer</button>
+              </form>
+        </div>
+      </div>
+    </div>
+
+
+</div></div>
+<style>
+.col2-set {
+  margin-left: 315px;
+  margin-right: 115px;
+}</style>

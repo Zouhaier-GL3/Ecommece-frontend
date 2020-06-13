@@ -1,0 +1,40 @@
+<style>  #ng-dirty #ng-touched #ng-valid {margin-left: 250px;}</style>
+
+<div class="col2-set" id="add_category">
+
+
+<div class="container">
+
+        <h2>Add new sub-category</h2>
+
+        <form [formGroup]="subcategoryform" (ngSubmit)="saveSubCategory()">
+
+
+
+            <p class="form-row form-row-wide">
+                <label for="username">Category name<span class="required">*</span></label>
+                <input type="text" formControlName="label" class="input-text" placeholder="Category name"  />
+            </p>
+
+            <p class="form-row">
+                <input  class="btn btn-primary button"  type="submit"
+                    value="Publier" name="label">
+
+            </p>
+
+        </form>
+
+<style>
+  #customer_login::before {
+    border-right: 1px solid #ddd;
+    height: 0px;
+    position: absolute;
+    content: ' ';
+    right: 50%;
+    top: 0;
+}
+.col2-set {
+    margin-left: 215px;
+    margin-right: 215px;
+}
+</style>

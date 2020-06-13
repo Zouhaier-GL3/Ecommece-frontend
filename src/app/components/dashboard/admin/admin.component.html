@@ -1,0 +1,50 @@
+<div class="container"><div class="container-fluid d-flex justify-content-center">
+    <div class="card text-left">
+        <div class="form-style-10">
+            <h1>List of Administrator : </h1>
+
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover table  ">
+        <thead>
+          <tr class="bg-grey">
+            <th>Name</th>
+            <th>Email</th>
+            <th>Telephone</th>
+            <th>Date Création</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of listAdmins">
+            <td>{{ item.name }}</td>
+            <td>{{ item.email }}</td>
+            <td>{{ item.telephone }}</td>
+            <td>{{ item.dataCre }}</td>
+            <td> <button class="btn"  data-toggle="modal" data-target="#deleteModal">supp</button></td>
+            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="Supprimer Admin" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Supprimer Admin</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                     Voulez vous Supprimer {{item.name}}
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulé</button>
+                      <button type="button" class="btn btn-primary" (click)="suppAdmin(item)">Supprimer</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </tr>
+
+        </tbody>
+        </table>
+
+        </div>
+
+</div>
+</div>
